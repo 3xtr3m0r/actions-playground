@@ -1,40 +1,41 @@
-name: "Hello World Workflow"
+name: "Exercicio 1"
 
 on:
-  workflow_dispatch:
+  push:
   
 jobs:
-  print_data_ubuntu:
-    name: Printa Data Atual Ubuntu
+  print_date_ubuntu:
+    name: Print Date Ubuntu!
     runs-on: ubuntu-latest
     
     steps:
-      - name: Printa Data Atual Ubuntu
+      - name: Print Date Ubuntu!
         run: date
         
-  print_data_windows:
-    name: Printa Data Atual Windows
+  print_date_windows:
+    name: Print Date Windows!
     runs-on: windows-latest
-    needs: print_data_ubuntu
     
     steps:
-    - name: Printa Data Atual Windows
+    - name: Print Date Windows!
       run: date
       
-  print_data_macos:
-    name: Printa Data Atual MacOS
+  print_date_macos:
+    name: Print Date MacOS!
     runs-on: macos-latest
-    needs: print_data_windows
     
     steps:
-    - name: Printa Data Atual MacOS
+    - name: Print Date MacOS!
       run: date
           
-  print_data_final:
-    name: Printa Data Final
+  print_date_final:
+    name: Print Date Final!
     runs-on: ubuntu-latest
-    needs: print_data_ubuntu
+    needs:
+      - print_date_ubuntu
+      - print_date_windows
+      - print_date_macos
     
     steps:
-    - name: Printa Data Final
+    - name: Printe Data Final!
       run: date
